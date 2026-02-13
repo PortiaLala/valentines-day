@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Announcement | Valentine 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --primary: #8a0e2a; /* Deep Wine Red */
+            --secondary: #f8f4f1; /* Off-white silk */
+            --accent: #d4af37; /* Gold */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--secondary);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        header {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #666;
+            margin-left: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-label {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin: 0 0 20px 0;
+            color: #1a1a1a;
+        }
+
+        .hero p {
+            max-width: 600px;
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        /* --- INTERACTIVE BUTTON --- */
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(138, 14, 42, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #5e0a1d;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(138, 14, 42, 0.3);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 40px;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        .footer-line {
+            width: 50px;
+            height: 1px;
+            background: var(--accent);
+            margin: 20px auto;
+        }
+
+        /* --- REVEAL CONTENT --- */
+        #confirmation-box {
+            display: none;
+            margin-top: 30px;
+            padding: 40px;
+            background: white;
+            border: 2px solid var(--accent);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Valentine's Day</div>
+        <nav>
+            <a href="#" style="color: var(--primary); font-weight: bold;">The Decision</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <span class="hero-label">February 14, 2026</span>
+        <h1>An Official Response</h1>
+        <p>In regards to the proposal made for the upcoming Valentine's Season, a final decision has been reached.</p>
+        
+        <button class="cta-button" id="main-btn" onclick="revealResponse()">VIEW OFFICIAL STATEMENT</button>
+
+        <div id="confirmation-box">
+            <div class="status-badge">APPLICATION STATUS: ACCEPTED</div>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-top:0;">It’s a Yes.</h2>
+            <p>I am officially saying yes to being your Valentine (and more). <br> 
+            I am expecting an actual planned date.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo" style="color: white;">Porshy</div>
+        <div class="footer-line"></div>
+        <p>© 2026 Abigail Portia Monreal. All Rights Reserved.</p>
+        <p style="opacity: 0.5;">Made with love for Micha</p>
+    </footer>
+
+    <script>
+        function revealResponse() {
+            // Confetti effect
+            var duration = 5 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            function randomInRange(min, max) {
+              return Math.random() * (max - min) + min;
+            }
+
+            var interval = setInterval(function() {
+              var timeLeft = animationEnd - Date.now();
+              if (timeLeft <= 0) return clearInterval(interval);
+              var particleCount = 50 * (timeLeft / duration);
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+
+            // Interface changes
+            document.getElementById('main-btn').style.display = 'none';
+            document.getElementById('confirmation-box').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
