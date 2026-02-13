@@ -8,9 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         :root {
-            --primary: #8a0e2a; /* Deep Wine Red */
-            --secondary: #f8f4f1; /* Off-white silk */
-            --accent: #d4af37; /* Gold */
+            --primary: #8a0e2a; 
+            --secondary: #f8f4f1; 
+            --accent: #d4af37; 
         }
 
         body {
@@ -18,12 +18,13 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--secondary);
             color: #333;
-            line-height: 1.6;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* --- HEADER --- */
         header {
-            padding: 20px 50px;
+            padding: 15px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -37,169 +38,178 @@
         .logo {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--primary);
-            letter-spacing: 1px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #666;
-            margin-left: 20px;
-            font-size: 0.9rem;
-            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         /* --- HERO SECTION --- */
         .hero {
-            height: 80vh;
+            min-height: 70vh; /* Better for mobile heights */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
+            padding: 40px 20px;
+            box-sizing: border-box;
         }
 
         .hero-label {
             text-transform: uppercase;
             letter-spacing: 3px;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: var(--accent);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-weight: 600;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 2.2rem; /* Scaled down for mobile */
             margin: 0 0 20px 0;
             color: #1a1a1a;
+            padding: 0 10px;
         }
 
         .hero p {
-            max-width: 600px;
-            font-size: 1.2rem;
+            max-width: 500px;
+            font-size: 1rem;
             color: #555;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
-        /* --- INTERACTIVE BUTTON --- */
+        /* --- BUTTONS --- */
         .cta-button {
             background-color: var(--primary);
             color: white;
-            padding: 18px 45px;
+            padding: 16px 32px;
             border: none;
             border-radius: 4px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             letter-spacing: 2px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 10px 20px rgba(138, 14, 42, 0.2);
-        }
-
-        .cta-button:hover {
-            background-color: #5e0a1d;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px rgba(138, 14, 42, 0.3);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            padding: 40px;
-            background: #1a1a1a;
-            color: white;
-            text-align: center;
-            font-size: 0.8rem;
-        }
-
-        .footer-line {
-            width: 50px;
-            height: 1px;
-            background: var(--accent);
-            margin: 20px auto;
+            width: 90%; /* Full width on mobile */
+            max-width: 300px;
         }
 
         /* --- REVEAL CONTENT --- */
         #confirmation-box {
             display: none;
-            margin-top: 30px;
-            padding: 40px;
+            margin-top: 20px;
+            padding: 30px 20px;
             background: white;
-            border: 2px solid var(--accent);
+            border: 1px solid var(--accent);
+            width: 90%;
+            max-width: 400px;
             animation: fadeIn 1s ease forwards;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .status-badge {
             display: inline-block;
-            padding: 5px 15px;
+            padding: 4px 12px;
             border: 1px solid var(--primary);
             color: var(--primary);
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             font-weight: bold;
             margin-bottom: 15px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 30px 20px;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            font-size: 0.75rem;
+        }
+
+        .footer-line {
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+            margin: 15px auto;
+        }
+
+        /* Responsive adjustments for Tablets/Desktops */
+        @media (min-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            .hero-label { font-size: 0.8rem; }
+            .logo { font-size: 1.5rem; }
+            .cta-button { width: auto; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">Valentine's Day</div>
-        <nav>
-            <a href="#" style="color: var(--primary); font-weight: bold;">The Decision</a>
+        <div class="logo">P & M</div>
+        <nav style="font-size: 0.7rem; letter-spacing: 1px; color: var(--primary); font-weight: bold;">
+            THE DECISION
         </nav>
     </header>
 
     <section class="hero">
         <span class="hero-label">February 14, 2026</span>
-        <h1>An Official Response</h1>
-        <p>In regards to the proposal made for the upcoming Valentine's Season, a final decision has been reached.</p>
+        <h1 id="hero-title">An Official Response</h1>
+        <p id="hero-desc">In regards to the proposal made on February 13, 2026, a final decision has been finalized and recorded.</p>
         
-        <button class="cta-button" id="main-btn" onclick="revealResponse()">VIEW OFFICIAL STATEMENT</button>
+        <button class="cta-button" id="main-btn" onclick="revealResponse()">VIEW STATEMENT</button>
 
         <div id="confirmation-box">
-            <div class="status-badge">APPLICATION STATUS: ACCEPTED</div>
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-top:0;">It’s a Yes.</h2>
-            <p>I am officially saying yes to being your Valentine (and more). <br> 
-            I am expecting an actual planned date.</p>
+            <div class="status-badge">STATUS: ACCEPTED</div>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin: 0 0 10px 0;">It’s a Yes.</h2>
+            <p style="margin-bottom: 0;">I am officially saying yes to being your Valentine.<br><br>
+            <span style="font-style: italic; color: var(--primary);">I am expecting an actual planned date, Micha. I love you 😉 </span></p>
         </div>
     </section>
 
     <footer>
-        <div class="logo" style="color: white;">Porshy</div>
+        <div class="logo" style="color: white; font-size: 1rem;">Porshy</div>
         <div class="footer-line"></div>
-        <p>© 2026 Abigail Portia Monreal. All Rights Reserved.</p>
-        <p style="opacity: 0.5;">Made with love for Micha</p>
+        <p>© 2026 Abigail Portia Monreal</p>
+        <p style="opacity: 0.5;">Confidential & Intended for Micha</p>
     </footer>
 
     <script>
         function revealResponse() {
-            // Confetti effect
-            var duration = 5 * 1000;
-            var animationEnd = Date.now() + duration;
-            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+            // Confetti
+            var end = Date.now() + (4 * 1000);
+            var colors = ['#8a0e2a', '#d4af37'];
 
-            function randomInRange(min, max) {
-              return Math.random() * (max - min) + min;
-            }
+            (function frame() {
+              confetti({
+                particleCount: 2,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 },
+                colors: colors
+              });
+              confetti({
+                particleCount: 2,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 },
+                colors: colors
+              });
 
-            var interval = setInterval(function() {
-              var timeLeft = animationEnd - Date.now();
-              if (timeLeft <= 0) return clearInterval(interval);
-              var particleCount = 50 * (timeLeft / duration);
-              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
-            }, 250);
+              if (Date.now() < end) {
+                requestAnimationFrame(frame);
+              }
+            }());
 
-            // Interface changes
+            // UI Changes
             document.getElementById('main-btn').style.display = 'none';
+            document.getElementById('hero-title').innerText = "Confirmed.";
+            document.getElementById('hero-desc').style.display = 'none';
             document.getElementById('confirmation-box').style.display = 'block';
         }
     </script>
